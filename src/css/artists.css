@@ -156,6 +156,7 @@ a {
   font-size: 18px;
   line-height: 150%;
   color: var(--color-scheme-1-text);
+  margin-bottom: 24px;
 }
 
 .artist__card--btn {
@@ -164,6 +165,10 @@ a {
   font-size: 18px;
   line-height: 150%;
   color: var(--color-white);
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .artists__button {
