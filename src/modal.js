@@ -1,4 +1,4 @@
-const modalBackdrop = document.querySelector('.artists-modal-backdrop');
+ const modalBackdrop = document.querySelector('.artists-modal-backdrop');
 const modalWindow = document.querySelector('.artists-modal-window');
 const modalCloseBtn = document.querySelector('.artists-modal-window-btn');
 const modalContent = document.querySelector('.artists-modal-window-content');
