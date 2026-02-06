@@ -61,7 +61,15 @@
   --second-family: 'Epilogue', sans-serif;
   --third-family: 'Roboto', sans-serif;
 }
+html {
+  box-sizing: border-box;
+}
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -106,8 +114,8 @@ a {
 
 .artists__list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
+  flex-direction: column;
+  gap: 64px;
 }
 
 .artists__item {
@@ -151,28 +159,45 @@ a {
 }
 
 .artist__card--info {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+
   font-family: var(--font-family);
-  font-weight: 400;
   font-size: 18px;
-  line-height: 150%;
-  color: var(--color-scheme-1-text);
+  line-height: 1.5;
   margin-bottom: 24px;
+  color: var(--color-scheme-1-text);
 }
 
 .artist__card--btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
-  line-height: 150%;
   color: var(--color-white);
-  background-color: inherit;
+  background: transparent;
   border: none;
-  cursor: pointer;
-  padding: 0;
+  transition: color 250ms ease;
+}
+
+.artist__card--btn:hover,
+.artist__card--btn:focus {
+  color: var(--color-affair-light);
+}
+
+.artist__card--btn svg {
+  fill: currentColor;
 }
 
 .artists__button {
-  margin-top: 32px;
+  align-items: center;
   border-radius: 12px;
   padding: 11px 83px;
   box-shadow:
@@ -182,36 +207,119 @@ a {
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 var(--opacity-white-5);
   background: var(--color-affair);
-}
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-white);
 
-.artists__button:disabled {
-  background-color: var(--color-neutral-dark);
-  cursor: not-allowed;
-  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  margin: 32px auto 0;
 }
 
 .artists__button-icon {
   margin-left: 12px;
   fill: var(--color-white);
 }
-/* -------------- */
 
-/* Планшет (от 768px) */
+.artists__list {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
 
+.artists__item {
+  flex-basis: 100%;
+}
+
+/* --- Планшет (від 768px до 1439px) --- */
 @media (min-width: 768px) {
-  .artists__item {
-    flex-basis: calc((100% - 32px) / 2);
+  .artists {
+    padding: 80px 32px;
   }
+
   .artists__subtitle {
-    width: 100%; /* Позволяем заголовку быть шире на планшете */
+    font-size: 56px;
+    width: 100%;
     max-width: 600px;
+    margin-bottom: 48px;
+  }
+  .artist__card--info {
+    -webkit-line-clamp: 4;
   }
 }
 
-/* Десктоп (от 1440px) - 4 колонки */
-@media (min-width: 1440px) {
+/* --- Десктоп (від 1440px) --- */
+@media (min-width: 1200px) {
+  .artists {
+    padding: 100px 64px;
+  }
+
+  .artists__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 32px;
+    row-gap: 64px;
+    margin-bottom: 64px;
+  }
+
   .artists__item {
-    /* 4 колонки = 3 промежутка по 32px */
-    flex-basis: calc((100% - (32px * 3)) / 4);
+    flex-basis: calc((100% - 32px) / 2);
+  }
+
+  .artist__card--info {
+    -webkit-line-clamp: 3;
+  }
+
+  .artists__subtitle {
+    width: 100%;
+    max-width: 800px;
+    font-size: 64px;
+  }
+}
+
+/* Лоадер */
+.loader-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(6, 3, 7, 0.8); /* Колір вашого фону з прозорістю */
+  z-index: 999;
+  transition:
+    opacity 250ms linear,
+    visibility 250ms linear;
+}
+
+.loader-backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Красивий спінер */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--color-white);
+  border-bottom-color: var(--color-affair); /* Ваш акцентний колір */
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
