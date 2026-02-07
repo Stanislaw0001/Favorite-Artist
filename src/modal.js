@@ -1,7 +1,5 @@
- const modalBackdrop = document.querySelector('.artists-modal-backdrop');
-const modalWindow = document.querySelector('.artists-modal-window');
+const modalBackdrop = document.querySelector('.artists-modal-backdrop');
 const modalCloseBtn = document.querySelector('.artists-modal-window-btn');
-const modalContent = document.querySelector('.artists-modal-window-content');
 const loader = document.querySelector('.loader');
 
 export const showLoader = () => {
@@ -42,7 +40,8 @@ modalBackdrop.addEventListener('click', ev => {
   }
 });
 document.addEventListener('keydown', ev => {
-  if (ev.key === 'Escape') {
+  if (ev.key === 'Escape' &&
+    !modalBackdrop.classList.contains('is-hidden-modal')) {
     closeArtistModal();
   }
 });
