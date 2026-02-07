@@ -1,0 +1,239 @@
+.artists {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 64px 16px;
+  background-color: var(--color-scheme-1-background);
+}
+
+.artists__title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--color-scheme-1-text);
+  margin-bottom: 16px;
+}
+
+.artists__subtitle {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: var(--color-scheme-1-text);
+  margin-bottom: 32px;
+  width: 288px;
+}
+
+.artists__list {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.artists__item {
+  flex-basis: 100%;
+}
+
+.artists__card--img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.artist__card--genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.artist__card--genre {
+  padding: 4px 12px;
+  border: 1px solid var(--color-scheme-1-border);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--color-scheme-1-text);
+}
+
+.artist__card--name {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 130%;
+  letter-spacing: -0.01em;
+  color: var(--color-scheme-1-text);
+  margin-bottom: 8px;
+}
+
+.artist__card--info {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+
+  font-family: var(--font-family);
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  color: var(--color-scheme-1-text);
+}
+
+.artist__card--btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--color-white);
+  background: transparent;
+  border: none;
+  transition: color 250ms ease;
+}
+
+.artist__card--btn:hover,
+.artist__card--btn:focus {
+  color: var(--color-affair-light);
+}
+
+.artist__card--btn svg {
+  fill: currentColor;
+}
+
+.artists__button {
+  align-items: center;
+  border-radius: 12px;
+  padding: 11px 83px;
+  box-shadow:
+    0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+  background: var(--color-affair);
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-white);
+
+  display: flex;
+  justify-content: center;
+  margin: 32px auto 0;
+}
+
+.artists__button-icon {
+  margin-left: 12px;
+  fill: var(--color-white);
+}
+
+.artists__list {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.artists__item {
+  flex-basis: 100%;
+}
+
+/* --- Планшет (від 768px до 1439px) --- */
+@media (min-width: 768px) {
+  .artists {
+    padding: 80px 32px;
+  }
+
+  .artists__subtitle {
+    font-size: 56px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
+  .artist__card--info {
+    -webkit-line-clamp: 4;
+  }
+}
+
+/* --- Десктоп (від 1440px) --- */
+@media (min-width: 1200px) {
+  .artists {
+    padding: 100px 64px;
+  }
+
+  .artists__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 32px;
+    row-gap: 64px;
+    margin-bottom: 64px;
+  }
+
+  .artists__item {
+    flex-basis: calc((100% - 32px) / 2);
+  }
+
+  .artist__card--info {
+    -webkit-line-clamp: 3;
+  }
+
+  .artists__subtitle {
+    width: 100%;
+    max-width: 800px;
+    font-size: 64px;
+  }
+}
+
+/* Лоадер */
+.loader-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(6, 3, 7, 0.8); /* Колір вашого фону з прозорістю */
+  z-index: 999;
+  transition:
+    opacity 250ms linear,
+    visibility 250ms linear;
+}
+
+.loader-backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Красивий спінер */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--color-white);
+  border-bottom-color: var(--color-affair); /* Ваш акцентний колір */
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

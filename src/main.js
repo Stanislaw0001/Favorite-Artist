@@ -30,4 +30,8 @@ links.forEach(link => {
 
     section.scrollIntoView({ behavior: 'smooth' });
   });
+import { initArtApp } from './js/artist-init.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  initArtApp();
 });
