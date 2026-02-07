@@ -1,23 +1,47 @@
-<section class="about-artists">
-  <div class="about-container">
-    <img
-      src="/"
-      alt="Team"
-      class="about-image"
-      width="640"
-      height="665"
-      loading="lazy"
-    />
+<section class="about-artists" id="">
+  <div class="container about-container">
+    <div class="about-us-box">
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcset="
+            ../img/about-us/about-us-mobil.webp    1x,
+            ../img/about-us/about-us-mobil@2x.webp 2x
+          "
+        />
+        <source
+          media="(min-width: 768px)"
+          width="704"
+          srcset="
+            ../img/about-us/about-us-tablet.webp    1x,
+            ../img/about-us/about-us-tablet@2x.webp 2x
+          "
+        />
+        <source
+          media="(min-width: 1440px)"
+          srcset="
+            ../img/about-us/about-us-desktop.webp    1x,
+            ../img/about-us/about-us-desktop@2x.webp 2x
+          "
+        />
+        <img
+          class="about-us-image"
+          width="640"
+          src="../img/about-us/about-us-desktop.webp"
+          alt="Team photo"
+        />
+      </picture>
+    </div>
     <div class="about-content">
-      <svg class="about-svg"></svg>
-      <div class="about-title">
-        <h2 class="title">About ArtistsHub</h2>
-        <p class="subtitle">
-          At ArtistsHub, our mission is to connect music lovers with the artists
-          they adore. We strive to create a vibrant community where discovering
-          new music is as enjoyable as listening to it.
-        </p>
-      </div>
+      <svg class="about-svg" width="80" height="80">
+        <use href="../"></use>
+      </svg>
+      <h2 class="title">About ArtistsHub</h2>
+      <p class="subtitle">
+        At ArtistsHub, our mission is to connect music lovers with the artists
+        they adore. We strive to create a vibrant community where discovering
+        new music is as enjoyable as listening to it.
+      </p>
     </div>
   </div>
 </section>
