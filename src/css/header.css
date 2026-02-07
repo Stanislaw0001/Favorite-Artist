@@ -1,0 +1,135 @@
+@media (min-width: 320px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    background-color: #060307;
+    width: 100%;
+    height: 64px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 6.5px 12px 6.5px 20px;
+  }
+
+  .logo-icon {
+    width: 106px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #060307;
+    display: flex;
+    flex-direction: column;
+    gap: 39px;
+    z-index: 1001;
+  }
+
+  .mobmenu-hidden {
+    display: none;
+  }
+
+  .close-icon {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6.5px 12px 6.5px 20px;
+    height: 51px;
+  }
+
+  .mobile-nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .mobile-nav-list a {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  section {
+    scroll-margin-top: 64px;
+  }
+
+  .no-scroll {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    height: 72px;
+  }
+
+  .container {
+    padding: 10.5px 64px;
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+  }
+
+  .hidden {
+    display: block;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .nav-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  section {
+    scroll-margin-top: 72px;
+  }
+}
