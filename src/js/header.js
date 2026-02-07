@@ -4,10 +4,12 @@ const mobileMenu = document.querySelector('.mobile-menu');
 
 menuIcon.addEventListener('click', () => {
   mobileMenu.classList.remove('mobmenu-hidden');
+  document.body.classList.add('no-scroll');
 });
 
 closeIcon.addEventListener('click', () => {
   mobileMenu.classList.add('mobmenu-hidden');
+  document.body.classList.remove('no-scroll');
 });
 
 const mobileLinks = document.querySelectorAll('.mobile-nav-list a');
@@ -15,6 +17,7 @@ const mobileLinks = document.querySelectorAll('.mobile-nav-list a');
 mobileLinks.forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.add('mobmenu-hidden');
+    document.body.classList.remove('no-scroll');
   });
 });
 
