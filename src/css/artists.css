@@ -138,16 +138,6 @@
   fill: var(--color-white);
 }
 
-.artists__list {
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-}
-
-.artists__item {
-  flex-basis: 100%;
-}
-
 /* --- Планшет (від 768px до 1439px) --- */
 @media (min-width: 768px) {
   .artists {
@@ -166,9 +156,9 @@
 }
 
 /* --- Десктоп (від 1440px) --- */
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .artists {
-    padding: 100px 64px;
+    padding: 112px 64px;
   }
 
   .artists__list {
