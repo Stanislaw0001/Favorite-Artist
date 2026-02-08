@@ -1,26 +1,3 @@
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .artists {
   width: 100%;
   max-width: 1440px;
@@ -189,7 +166,7 @@ a {
 }
 
 /* --- Десктоп (від 1440px) --- */
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .artists {
     padding: 112px 64px;
   }

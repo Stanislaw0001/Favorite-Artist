@@ -60,23 +60,39 @@
   --color-error-red: #af0404;
 }
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-color: var(--color-affair);
 }
 
 body {
+  font-family: Arial, sans-serif;
   min-height: 100vh;
   background-color: var(--color-neutral-darkest);
-  margin: 0;
-  padding: 0;
 }
 
 a {
+  text-decoration: none;
+  color: inherit;
   font-family: var(--font-family);
   font-weight: 600;
   line-height: 150%;
   color: var(--color-scheme-1-text);
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 img {
