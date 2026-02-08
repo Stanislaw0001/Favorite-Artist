@@ -1,3 +1,5 @@
+import Raty from 'raty-js';
+
 export function initFeedbackModal() {
   const openBtn = document.querySelector('.js-open-feedback');
   const backdrop = document.querySelector('.js-feedback-backdrop');
@@ -6,11 +8,22 @@ export function initFeedbackModal() {
 
   const closeBtn = backdrop.querySelector('.js-close-feedback');
   const form = backdrop.querySelector('.js-feedback-form');
-  const stars = backdrop.querySelector('.js-rating');
   const error = backdrop.querySelector('.js-feedback-error');
   const loader = backdrop.querySelector('.js-feedback-loader');
+  const ratingContainer = backdrop.querySelector('.js-rating');
 
   let rating = 0;
+
+  const starWidget = new Raty(ratingContainer, {
+    number: 5,
+    star: '★',
+    starOn: '★',
+    starOff: '★',
+    size: 24,
+    click: score => {
+      rating = score;
+    },
+  });
 
   function openModal() {
     backdrop.classList.add('active');
@@ -25,9 +38,7 @@ export function initFeedbackModal() {
 
     form.reset();
     rating = 0;
-    [...stars.children].forEach(star =>
-      star.classList.remove('active')
-    );
+    starWidget.clear();
     error.textContent = '';
   }
 
@@ -47,20 +58,6 @@ export function initFeedbackModal() {
     }
   }
 
-  stars.addEventListener('click', e => {
-    const value = e.target.dataset.value;
-    if (!value) return;
-
-    rating = Number(value);
-
-    [...stars.children].forEach(star => {
-      star.classList.toggle(
-        'active',
-        Number(star.dataset.value) <= rating
-      );
-    });
-  });
-
   form.addEventListener('submit', async e => {
     e.preventDefault();
     error.textContent = '';
@@ -77,11 +74,7 @@ export function initFeedbackModal() {
     try {
       loader.classList.remove('hidden');
 
-      await sendFeedback({
-        name,
-        message,
-        rating,
-      });
+      await sendFeedback({ name, message, rating });
 
       closeModal();
       Notify.success('Thank you for your feedback!');
