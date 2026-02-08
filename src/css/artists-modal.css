@@ -1,0 +1,274 @@
+.artists-modal {
+  position: relative;
+  z-index: 1000;
+}
+
+.artists-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-hidden-modal {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.artists-modal-window {
+  position: relative;
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  max-height: 90vh;
+  background: #060307;
+  border-radius: 16px;
+  padding: 24px;
+  color: #ffffff;
+  overflow-y: auto;
+}
+
+.artists-modal-window-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  z-index: 10;
+}
+
+.artists-modal-window-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ff4d4d;
+}
+
+.artists-modal-window-close {
+  width: 24px;
+  height: 24px;
+}
+
+.artists-modal-loader {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #bfbfbf;
+}
+
+.is-hidden-modal-loader {
+  display: none;
+}
+
+.artists-modal-window-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.artist-modal-top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.artist-modal-img {
+  width: 272px;
+  height: 167px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+img {
+  width: 272px;
+  height: 167px;
+}
+
+.artist-modal-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 32px;
+  font-size: 14px;
+  color: #bfbfbf;
+}
+
+.artist-meta-column strong {
+  display: block;
+  font-size: 12px;
+  color: #7d7d7d;
+  margin-bottom: 4px;
+}
+
+.artist-modal-bio {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e1e1e1;
+}
+
+.artist-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.artist-genres span {
+  padding: 8px 14px;
+  font-size: 12px;
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 999px;
+}
+
+.albums-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.album {
+  background: #141414;
+  border-radius: 16px;
+  padding: 20px;
+  color: #e5e5e5;
+}
+
+.album-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.album-tracks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #2a2a2a;
+}
+
+.album-tracks-header {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 12px;
+  padding: 8px;
+  font-size: 14px;
+  color: #8a8a8a;
+  border-bottom: 1px solid #2a2a2a;
+  margin-bottom: 12px;
+}
+
+.album-tracks-header span {
+  font-weight: 600;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 12px;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.track:last-child {
+  border-bottom: none;
+}
+
+.track span {
+  padding-left: 8px;
+}
+
+.track:nth-child(odd) span {
+  background-color: #2a2a2a;
+  border-radius: 6px;
+}
+
+.track-link svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+  transition: fill 0.3s;
+}
+
+.track-link:hover svg {
+  fill: red;
+}
+
+.track-link a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  background-color: transparent;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.track-link a:hover {
+  background-color: #ff0000;
+}
+
+.track-link a svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ===== TABLET ===== */
+@media screen and (min-width: 768px) {
+  .artist-modal-img {
+    width: 654px;
+    height: 402px;
+  }
+
+  img {
+    width: 654px;
+    height: 402px;
+  }
+
+  .artist-modal-top {
+    align-items: center;
+  }
+}
+
+/* ===== DESKTOP ===== */
+@media screen and (min-width: 1280px) {
+  .artist-modal-top {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .artist-modal-img {
+    width: 576px;
+    height: 354px;
+  }
+
+  img {
+    width: 576px;
+    height: 354px;
+    border-radius: 16px;
+    display: block;
+  }
+
+  .artists-modal-window {
+    padding: 32px;
+  }
+}

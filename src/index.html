@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/artists-modal.css" />
   </head>
   <body>
     <load src="./partials/header.html" />
@@ -27,5 +28,23 @@
     <load src="./partials/footer.html" />
 
     <script type="module" src="./main.js"></script>
+
+    <section class="artists-modal">
+      <div class="artists-modal-backdrop is-hidden-modal">
+        <div class="artists-modal-window">
+          <button class="artists-modal-window-btn">
+            <img
+              src="./images/menu-close.svg"
+              alt="Іконка кнопки"
+              class="artists-modal-window-close"
+            />
+          </button>
+
+          <span class="loader is-hidden-modal-loader"></span>
+
+          <div class="artists-modal-window-content"></div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
