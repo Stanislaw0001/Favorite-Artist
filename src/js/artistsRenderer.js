@@ -20,7 +20,7 @@ export function createMarkup(artists) {
           <p class="artist__card--info">${shortDescription}</p>
           <button class="artist__card--btn" type="button" data-id="${_id}">
             Learn More 
-            <svg width="24" height="24"><use href="icon/symbol-defs.svg#icon-play3"></use></svg>
+            <svg width="24" height="24"><use href="/icon/symbol-defs.svg#icon-play3"></use></svg>
           </button>
         </div>
       </li>`;
