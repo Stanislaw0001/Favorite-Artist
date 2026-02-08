@@ -45,22 +45,21 @@ function renderArtistModal(artist) {
   });
 
   modalContent.innerHTML = `
-    <h2>${artist.strArtist}</h2>
+    <h2 class="artist-name">${artist.strArtist}</h2>
     <img src="${artist.strArtistThumb}" alt="${artist.strArtist}" class="artist-img" />
+    <div class="artist-name-paragraphs">
+    <p class="artist-modal-meta-paragraphs"><strong>Years Active</strong> ${yearsActive}</p>
+    <p class="artist-modal-meta-paragraphs"><strong>Sex</strong> ${artist.strGender || 'Information missing'}</p>
+    <p class="artist-modal-meta-paragraphs"><strong>Members</strong> ${artist.intMembers || 'Information missing'}</p>
+    <p class="artist-modal-meta-paragraphs"><strong>Country</strong> ${artist.strCountry || 'Information missing'}</p>
+    </div>
+    <p class="artist-modal-meta-paragraphs"><strong>Biography</strong> ${artist.strBiographyEN || 'No biography available'}</p>
 
-    <p><strong>Years Active:</strong> ${yearsActive}</p>
-    <p><strong>Sex:</strong> ${artist.strGender || 'Information missing'}</p>
-    <p><strong>Members:</strong> ${artist.intMembers || 'Information missing'}</p>
-    <p><strong>Country:</strong> ${artist.strCountry || 'Information missing'}</p>
-
-    <p><strong>Biography:</strong> ${artist.strBiographyEN || 'No biography available'}</p>
-
-    <h3>Genres:</h3>
     <ul class="artist-genres">
-      ${artist.genres?.map(genre => `<li>${genre}</li>`).join('') || 'No genres available'}
+      ${artist.genres?.map(genre => `<li class="artist-genres-list">${genre}</li>`).join('') || 'No genres available'}
     </ul>
 
-    <h3>Albums:</h3>
+    <h3>Albums</h3>
     <div class="albums-container">
       ${Object.entries(albums)
         .map(
