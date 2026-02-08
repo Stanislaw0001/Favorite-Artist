@@ -1,5 +1,5 @@
 const scrollBtn = document.querySelector('#hero-scroll-btn');
-const targetSection = document.querySelector('#about-artists'); 
+const targetSection = document.querySelector('#artists'); 
 
 if (scrollBtn && targetSection) {
   scrollBtn.addEventListener('click', () => {
