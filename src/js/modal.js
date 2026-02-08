@@ -11,27 +11,27 @@ export const hideLoader = () => {
 };
 
 document.addEventListener('click', e => {
-    const btn = e.target.closest('.artist__card--btn');
-    if (!btn) {
-        return
-    }
-    const artistsIdOpenModal = btn.dataset.id;
-    openArtistsModal(artistsIdOpenModal);
-})
+  const btn = e.target.closest('.artist__card--btn');
+  if (!btn) {
+    return;
+  }
+  const artistsIdOpenModal = btn.dataset.id;
+  openArtistsModal(artistsIdOpenModal);
+});
 
- export const openArtistsModal = artistsIdOpenModal => {
-    modalBackdrop.classList.remove('is-hidden-modal');
-    document.body.style.overflow = 'hidden';
+export const openArtistsModal = artistsIdOpenModal => {
+  modalBackdrop.classList.remove('is-hidden-modal');
+  document.body.style.overflow = 'hidden';
 
-    showLoader()
- }
+  showLoader();
+};
 
 export const closeArtistModal = () => {
-    modalBackdrop.classList.add('is-hidden-modal');
-    document.body.style.overflow = '';
+  modalBackdrop.classList.add('is-hidden-modal');
+  document.body.style.overflow = '';
 
-    hideLoader();
-}
+  hideLoader();
+};
 
 modalCloseBtn.addEventListener('click', closeArtistModal);
 modalBackdrop.addEventListener('click', ev => {
@@ -40,8 +40,10 @@ modalBackdrop.addEventListener('click', ev => {
   }
 });
 document.addEventListener('keydown', ev => {
-  if (ev.key === 'Escape' &&
-    !modalBackdrop.classList.contains('is-hidden-modal')) {
+  if (
+    ev.key === 'Escape' &&
+    !modalBackdrop.classList.contains('is-hidden-modal')
+  ) {
     closeArtistModal();
   }
 });
