@@ -161,41 +161,58 @@ img {
   border-radius: 999px;
 }
 
+.albums-section-title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
 .albums-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 }
 
 .album {
-  background: #141414;
+  width: 311px;
+  height: 564px;
+  background: #1e1c1f;
   border-radius: 16px;
-  padding: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-right: 11px;
+  padding-left: 11px;
   color: #e5e5e5;
 }
 
 .album-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 16px;
+font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 12px;
 }
 
 .album-tracks {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid #2a2a2a;
 }
 
 .album-tracks-header {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
-  gap: 12px;
-  padding: 8px;
-  font-size: 14px;
-  color: #8a8a8a;
-  border-bottom: 1px solid #2a2a2a;
+  padding: 4px;
   margin-bottom: 12px;
+  font-weight: 600;
+    font-size: 8px;
+    line-height: 1.5;
+    color: #fff;
+
+    border-radius: 8px;
+    padding: 4px 0px 4px 12px;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .album-tracks-header span {
@@ -207,26 +224,24 @@ img {
   grid-template-columns: 3fr 1fr 1fr;
   gap: 12px;
   font-size: 13px;
-  padding: 6px 0;
-  border-bottom: 1px solid #1f1f1f;
+  padding: 8px 0px 8px 12px;
+
 }
 
-.track:last-child {
-  border-bottom: none;
-}
+
 
 .track span {
-  padding-left: 8px;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
-.track:nth-child(odd) span {
-  background-color: #2a2a2a;
-  border-radius: 6px;
+.track:nth-child(odd) {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1); 
 }
 
 .track-link svg {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   fill: white;
   transition: fill 0.3s;
 }
@@ -307,6 +322,13 @@ img {
   .artist-modal-top {
     align-items: center;
   }
+
+
+  .albums-container{
+    gap: 32px;
+  }
+
+  
 }
 
 /* ===== DESKTOP ===== */
@@ -332,4 +354,5 @@ img {
   .artists-modal-window {
     padding: 64px;
   }
+
 }

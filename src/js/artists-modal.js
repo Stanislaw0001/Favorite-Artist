@@ -59,18 +59,18 @@ function renderArtistModal(artist) {
       ${artist.genres?.map(genre => `<li class="artist-genres-list">${genre}</li>`).join('') || 'No genres available'}
     </ul>
 
-    <h3>Albums</h3>
+    <h3 class="albums-section-title">Albums</h3>
     <div class="albums-container">
       ${Object.entries(albums)
         .map(
           ([albumName, tracks]) => `
         <div class="album">
-          <h4>${albumName}</h4>
+          <h4 class="album-title">${albumName}</h4>
           <ul class="album-tracks">
-            <li>
-              <strong>Track</strong>
-              <strong>Duration</strong>
-              <strong>YouTube</strong>
+            <li class="album-tracks-header">
+              <span>Track</span>
+              <span>Time</span>
+              <span>Link</span>
             </li>
             ${tracks
               .map(
