@@ -10,7 +10,13 @@ export async function fecthfeedbacks() {
         'Content-Type': 'application/json',
       },
     });
-    return data;
+    let feedbacks = data.data || [];
+    // Округление рейтинга и ограничение количества отзывов
+    feedbacks = feedbacks.slice(0, 10).map(item => ({
+      ...item,
+      rating: Math.round(item.rating),
+    }));
+    return feedbacks;
   } catch (error) {
     iziToast.error({
       message: `${error}`,
