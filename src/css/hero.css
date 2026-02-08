@@ -125,7 +125,7 @@ margin-left: 0;
 }
 
 /* PC */
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 1440px) {
  
   .hero .container {
     display: flex;
