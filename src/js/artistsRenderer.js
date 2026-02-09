@@ -1,4 +1,4 @@
-import iconSprite from './img/icon/artists-section.svg';
+import iconSprite from '../img/icon/artists-section.svg';
 
 export function createMarkup(artists) {
   return artists
