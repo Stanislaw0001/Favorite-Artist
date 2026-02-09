@@ -91,6 +91,13 @@
   justify-content: center;
 }
 
+.biography-text {
+  max-height: 324px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
 .artist-img {
   max-width: 100%;
   height: auto;
@@ -373,10 +380,8 @@
   }
 
   .biography-text {
-    height: 324px;
+    max-height: 400px;
     overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
   }
 
   .artists-modal-window {
