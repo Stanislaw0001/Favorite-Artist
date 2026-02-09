@@ -2,7 +2,8 @@
   <button class="feedback-btn js-open-feedback">Leave feedback</button>
 </section>
 
-<div class="backdrop js-feedback-backdrop" aria-hidden="true">
+<div class="backdrop js-feedback-backdrop" hidden inert>
+
   <div
     class="modal"
     role="dialog"
@@ -32,7 +33,14 @@
         ></textarea>
       </label>
 
-      <div class="js-rating"></div> 
+      <div class="stars js-rating" aria-label="Rating">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+
       <div class="loader hidden js-feedback-loader"></div>
 
       <p class="error js-feedback-error"></p>

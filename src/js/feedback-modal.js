@@ -1,5 +1,3 @@
-import Raty from 'raty-js';
-
 export function initFeedbackModal() {
   const openBtn = document.querySelector('.js-open-feedback');
   const backdrop = document.querySelector('.js-feedback-backdrop');
@@ -8,38 +6,42 @@ export function initFeedbackModal() {
 
   const closeBtn = backdrop.querySelector('.js-close-feedback');
   const form = backdrop.querySelector('.js-feedback-form');
+  const stars = backdrop.querySelector('.js-rating');
   const error = backdrop.querySelector('.js-feedback-error');
   const loader = backdrop.querySelector('.js-feedback-loader');
-  const ratingContainer = backdrop.querySelector('.js-rating');
 
   let rating = 0;
-
-  const starWidget = new Raty(ratingContainer, {
-    number: 5,
-    star: '★',
-    starOn: '★',
-    starOff: '★',
-    size: 24,
-    click: score => {
-      rating = score;
-    },
-  });
+  let lastFocusedElement = null;
 
   function openModal() {
+    lastFocusedElement = document.activeElement;
+
+    backdrop.hidden = false;
     backdrop.classList.add('active');
-    backdrop.setAttribute('aria-hidden', 'false');
+    backdrop.removeAttribute('inert');
+
     document.body.style.overflow = 'hidden';
+
+    closeBtn.focus();
   }
 
   function closeModal() {
     backdrop.classList.remove('active');
-    backdrop.setAttribute('aria-hidden', 'true');
+    backdrop.hidden = true;
+    backdrop.setAttribute('inert', '');
+
     document.body.style.overflow = '';
 
     form.reset();
     rating = 0;
-    starWidget.clear();
+    [...stars.children].forEach(star =>
+      star.classList.remove('active')
+    );
     error.textContent = '';
+
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
   }
 
   async function sendFeedback(data) {
@@ -57,6 +59,20 @@ export function initFeedbackModal() {
       throw new Error(result.message || 'Request failed');
     }
   }
+
+  stars.addEventListener('click', e => {
+    const value = e.target.dataset.value;
+    if (!value) return;
+
+    rating = Number(value);
+
+    [...stars.children].forEach(star => {
+      star.classList.toggle(
+        'active',
+        Number(star.dataset.value) <= rating
+      );
+    });
+  });
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -93,7 +109,7 @@ export function initFeedbackModal() {
   });
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && backdrop.classList.contains('active')) {
+    if (e.key === 'Escape' && !backdrop.hidden) {
       closeModal();
     }
   });
