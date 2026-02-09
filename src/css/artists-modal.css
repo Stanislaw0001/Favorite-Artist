@@ -36,26 +36,23 @@
 
 .artists-modal-window-btn {
   display: none;
-
 }
 
-
-
 .artists-modal-backdrop:not(.is-hidden-modal) .artists-modal-window-btn {
-    position: absolute;
-      top: 16px;
-      right: 16px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: transparent;
-      box-shadow: none;
-      color: #ffffff;
-      transition:
-        background-color 0.3s ease,
-        color 0.3s ease;
-      z-index: 10;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  box-shadow: none;
+  color: #ffffff;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  z-index: 10;
 }
 
 .artists-modal-window-btn:hover {
@@ -165,7 +162,7 @@
 
 .albums-section-title {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin-bottom: 16px;
 }
 
@@ -174,7 +171,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+  gap: 32px;
 }
 
 .album {
@@ -298,22 +295,16 @@
     margin-bottom: 48px;
   }
 
-
-
   .artist-modal-meta-paragraphs {
     margin-bottom: 24px;
-
   }
 
-    .artist-name-paragraphs {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      width: 400px;
-      gap: 0px;
-
-    }
-
-
+  .artist-name-paragraphs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 400px;
+    gap: 0px;
+  }
 
   .artist-genres {
     margin-bottom: 48px;
@@ -356,40 +347,36 @@
     display: block;
   }
 
-  .conteiner-img-paragraphs{
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 24px;
+  .conteiner-img-paragraphs {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
   }
 
   .artist-name-paragraphs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
   }
-    
+
   .artist-name-paragraphs p {
-      margin: 0;
-      padding: 0;
+    margin: 0;
+    padding: 0;
   }
 
-  .artist-name-paragraphs-bio-genges{
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
+  .artist-name-paragraphs-bio-genges {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 
-
-
-    .biography-text{
-      max-height: 400px;
-      overflow-y: auto;
-    }
-
-
+  .biography-text {
+    max-height: 400px;
+    overflow-y: auto;
+  }
 
   .artists-modal-window {
-    max-width: 1440px;
+    max-width: 1312px;
     padding: 64px;
   }
 
