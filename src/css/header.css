@@ -11,7 +11,7 @@
     z-index: 1000;
   }
 
-  .hidden {
+  .nav-hidden {
     display: none;
   }
 
@@ -106,7 +106,7 @@
     align-items: center;
   }
 
-  .hidden {
+  .nav-hidden {
     display: block;
   }
 

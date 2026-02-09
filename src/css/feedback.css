@@ -1,0 +1,169 @@
+.feedback-reviews {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.mySwiper {
+  width: 100%;
+  max-width: 700px; /* Ограничиваем максимальную ширину */
+  height: 253px; /* Фиксированная высота для единообразия */
+
+  margin: 0 auto;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+}
+
+.feedback-card {
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+  margin-bottom: 16px;
+}
+
+.swiper-slide-active .feedback-card {
+  transform: scale(1.02);
+}
+
+.rating {
+  font-size: 24px;
+  color: #ffc107;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.name {
+  font-family: IBM Plex Sans;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+
+.descr {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: -1%;
+  text-align: center;
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+  position: relative;
+}
+
+.swiper-pagination {
+  display: block !important;
+}
+
+/* .swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 10px;
+  font-weight: bold;
+} */
+
+/* .swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #333;
+  color: white;
+} */
+
+/* Стили для dynamicBullets */
+.mySwiper .swiper-pagination-bullet {
+  background: #e0e0e0;
+}
+
+.mySwiper .swiper-pagination-bullet-active-main {
+  background: var(--color-white); /* Главная активная точка */
+}
+
+.mySwiper .swiper-pagination-bullet-active-prev,
+.mySwiper .swiper-pagination-bullet-active-next {
+  background: var(--color-scheme-1-border) !important; /* Соседние точки */
+}
+
+/* Адаптивность */
+@media screen and (min-width: 768px) {
+  .mySwiper {
+    height: 297px;
+    padding: 0 20px;
+  }
+
+  .descr {
+    font-size: 26px;
+  }
+
+  /* Кнопки навигации */
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--color-scheme-1-border);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block !important;
+    position: relative;
+  }
+
+  .swiper-navigation-icon {
+    color: var(--color-scheme-1-text);
+  }
+
+  .swiper-pagination {
+    display: block !important;
+    bottom: 0px !important;
+  }
+}
+
+/* Анимация появления слайдов */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swiper-slide-active .feedback-card {
+  animation: slideIn 0.5s ease forwards;
+}
+
+@media screen and (min-width: 1440px) {
+  .feedback-reviews {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+
+  .mySwiper {
+    max-width: 1312px;
+    height: 397px;
+    margin: 0 auto;
+  }
+
+  .descr {
+    font-size: 32px;
+  }
+}
