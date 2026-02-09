@@ -18,6 +18,14 @@
 
 }
 
+#hero-scroll-btn {
+  position: relative;
+  z-index: 10; }
+
+.hero::after { 
+  pointer-events: none;
+}
+
 .hero-btn-icon {
  
   display: inline-block;   
@@ -27,7 +35,8 @@
 .hero-btn {
     align-items: center; 
   justify-content: center; 
-  gap: 12px; 
+  gap: 12px;
+  cursor: pointer;
 max-width: 288px;
   width: 100%;
   height: 47px;
@@ -192,5 +201,7 @@ margin-left: 0;
     linear-gradient(180deg, #060307 0%, rgba(35, 19, 43, 0) 4%);
     z-index: 5;
   }
+
+
 }
 
