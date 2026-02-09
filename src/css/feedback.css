@@ -1,11 +1,13 @@
 .feedback-reviews {
-  padding: 64px 0;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .mySwiper {
   width: 100%;
-  height: 300px; /* Фиксированная высота для единообразия */
   max-width: 700px; /* Ограничиваем максимальную ширину */
+  height: 253px; /* Фиксированная высота для единообразия */
+
   margin: 0 auto;
 }
 
@@ -23,12 +25,13 @@
 
 .feedback-card {
   border-radius: 16px;
-  padding: 40px;
+
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
   transition: transform 0.3s ease;
+  margin-bottom: 16px;
 }
 
 .swiper-slide-active .feedback-card {
@@ -45,9 +48,7 @@
 .name {
   font-family: IBM Plex Sans;
   font-weight: 600;
-  font-style: SemiBold;
   font-size: 18px;
-  leading-trim: NONE;
   line-height: 150%;
   letter-spacing: 0%;
 }
@@ -55,9 +56,7 @@
 .descr {
   font-family: var(--second-family);
   font-weight: 700;
-  font-style: Bold;
-  font-size: 26px;
-  leading-trim: NONE;
+  font-size: 18px;
   line-height: 140%;
   letter-spacing: -1%;
   text-align: center;
@@ -65,19 +64,14 @@
   margin-bottom: 32px;
 }
 
-/* Кнопки навигации */
 .swiper-button-next,
 .swiper-button-prev {
-  width: 48px;
-  height: 48px;
-  border: 1px solid var(--color-scheme-1-border);
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: none !important;
+  position: relative;
 }
 
-.swiper-navigation-icon {
-  color: var(--color-scheme-1-text);
+.swiper-pagination {
+  display: block !important;
 }
 
 /* .swiper-button-next:after,
@@ -107,32 +101,37 @@
 }
 
 /* Адаптивность */
-@media (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .mySwiper {
-    height: 400px;
+    height: 297px;
     padding: 0 20px;
   }
 
-  .feedback-card {
-    padding: 30px 20px;
-    margin: 0 10px;
-  }
-
-  .name {
-    font-size: 20px;
-  }
-
   .descr {
-    font-size: 16px;
+    font-size: 26px;
   }
+
+  /* Кнопки навигации */
 
   .swiper-button-next,
   .swiper-button-prev {
-    display: none;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--color-scheme-1-border);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block !important;
+    position: relative;
+  }
+
+  .swiper-navigation-icon {
+    color: var(--color-scheme-1-text);
   }
 
   .swiper-pagination {
-    bottom: -20px !important;
+    display: block !important;
+    bottom: 0px !important;
   }
 }
 
@@ -150,4 +149,21 @@
 
 .swiper-slide-active .feedback-card {
   animation: slideIn 0.5s ease forwards;
+}
+
+@media screen and (min-width: 1440px) {
+  .feedback-reviews {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+
+  .mySwiper {
+    max-width: 1312px;
+    height: 397px;
+    margin: 0 auto;
+  }
+
+  .descr {
+    font-size: 32px;
+  }
 }
