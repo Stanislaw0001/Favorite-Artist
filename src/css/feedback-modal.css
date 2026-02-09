@@ -1,6 +1,4 @@
-/* =============================
-   MOBILE (до 767px)
-============================= */
+
 .feedback {
   display: flex;           
   justify-content: center; 
@@ -132,9 +130,6 @@ textarea {
 }
 
 
-/* =============================
-   TABLET (768px - 1439px)
-============================= */
 @media (min-width: 768px) and (max-width: 1439px) {
   .modal {
   border-radius: 16px;
@@ -166,9 +161,6 @@ height: 47px;
 }
 
 
-/* =============================
-   DESKTOP (1440px и выше)
-============================= */
 @media (min-width: 1440px) {
   .modal {
     border-radius: 16px;
