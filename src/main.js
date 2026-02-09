@@ -5,8 +5,10 @@ import './js/artist-modal-handler.js';
 
 initArtApp();
 import { initFeedbackModal } from './js/feedback-modal.js';
+import { renderAndInitSwiper } from './js/feedbackRender.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initArtApp();
   initFeedbackModal();
+  renderAndInitSwiper();
 });
