@@ -46,18 +46,26 @@ function renderArtistModal(artist) {
 
   modalContent.innerHTML = `
     <h2 class="artist-name">${artist.strArtist}</h2>
+    <div class="conteiner-img-paragraphs">
     <img src="${artist.strArtistThumb}" alt="${artist.strArtist}" class="artist-img" />
+    <div class="artist-name-paragraphs-bio-genges">
     <div class="artist-name-paragraphs">
     <p class="artist-modal-meta-paragraphs"><strong>Years Active</strong> ${yearsActive}</p>
     <p class="artist-modal-meta-paragraphs"><strong>Sex</strong> ${artist.strGender || 'Information missing'}</p>
     <p class="artist-modal-meta-paragraphs"><strong>Members</strong> ${artist.intMembers || 'Information missing'}</p>
     <p class="artist-modal-meta-paragraphs"><strong>Country</strong> ${artist.strCountry || 'Information missing'}</p>
     </div>
-    <p class="artist-modal-meta-paragraphs"><strong>Biography</strong> ${artist.strBiographyEN || 'No biography available'}</p>
-
+    
+    
+    <div class="container-bio-genges">
+    <p class="artist-modal-meta-paragraphs biography-text"><strong>Biography</strong> ${artist.strBiographyEN || 'No biography available'}</p>
     <ul class="artist-genres">
       ${artist.genres?.map(genre => `<li class="artist-genres-list">${genre}</li>`).join('') || 'No genres available'}
     </ul>
+    </div>
+    </div>
+    </div>
+
 
     <h3 class="albums-section-title">Albums</h3>
     <div class="albums-container">
