@@ -1,0 +1,401 @@
+.artists-modal {
+  position: relative;
+  z-index: 1000;
+}
+
+.artists-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-hidden-modal {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.artists-modal-window {
+  position: relative;
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  max-height: 90vh;
+  background: #060307;
+  border-radius: 16px;
+  padding-top: 52px;
+  padding-bottom: 52px;
+  padding-right: 8px;
+  padding-left: 8px;
+  color: #ffffff;
+  overflow-y: auto;
+}
+
+.artists-modal-window-btn {
+  display: none;
+}
+
+.artists-modal-backdrop:not(.is-hidden-modal) .artists-modal-window-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  box-shadow: none;
+  color: #ffffff;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  z-index: 10;
+}
+
+.artists-modal-window-btn:hover {
+  background: #764191;
+}
+
+.artists-modal-window-close {
+  width: 24px;
+  height: 24px;
+}
+
+.artists-modal-loader {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #bfbfbf;
+}
+
+.is-hidden-modal-loader {
+  display: none;
+}
+
+.artists-modal-window-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-modal-top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.biography-text {
+  max-height: 324px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.artist-img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+
+.artist-modal-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 32px;
+  font-size: 14px;
+  color: #bfbfbf;
+}
+
+.artist-name {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.artist-modal-meta-paragraphs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.artist-meta-column strong {
+  display: block;
+  font-size: 12px;
+  color: #7d7d7d;
+  margin-bottom: 4px;
+}
+
+.artist-modal-bio {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e1e1e1;
+}
+
+.artist-genres {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.artist-genres-list {
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px 10px;
+  width: auto;
+  height: auto;
+}
+
+.artist-genres span {
+  padding: 8px 14px;
+  font-size: 12px;
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 999px;
+}
+
+.albums-section-title {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 16px;
+}
+
+.albums-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.album {
+  width: 311px;
+  height: 564px;
+  background: #1e1c1f;
+  border-radius: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-right: 11px;
+  padding-left: 11px;
+  color: #e5e5e5;
+  overflow: hidden;
+}
+
+.album-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.album-tracks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  max-height: 480px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: auto;
+}
+
+.album-tracks::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.album-tracks-header {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  padding: 4px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 1.5;
+  color: #fff;
+
+  border-radius: 8px;
+  padding: 4px 0px 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.album-tracks-header span {
+  font-weight: 600;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 12px;
+  font-size: 13px;
+  padding: 8px 0px 8px 12px;
+}
+
+.track span {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.track:nth-child(odd) {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.track-link svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  transition: fill 0.3s;
+}
+
+.track-link:hover svg {
+  fill: red;
+}
+
+.track-link a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  background-color: transparent;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.track-link a:hover {
+  background-color: #ff0000;
+}
+
+.track-link a svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ===== TABLET ===== */
+@media screen and (min-width: 768px) {
+  .artists-modal-window {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .artist-name {
+    margin-bottom: 48px;
+  }
+
+  .artist-modal-meta-paragraphs {
+    margin-bottom: 24px;
+  }
+
+  .artist-name-paragraphs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 400px;
+    gap: 0px;
+  }
+
+  .artist-genres {
+    margin-bottom: 48px;
+  }
+
+  .artist-img {
+    width: 654px;
+    height: auto;
+  }
+
+  .artist-modal-top {
+    align-items: center;
+  }
+
+  .albums-container {
+    gap: 32px;
+  }
+}
+
+/* ===== DESKTOP ===== */
+@media screen and (min-width: 1440px) {
+  .artists-modal-window-content .artist-modal-top {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .artist-img {
+    height: auto;
+
+    object-fit: contain;
+    margin: 0;
+    margin-bottom: 48px;
+  }
+
+  img {
+    width: 576px;
+    height: 354px;
+    border-radius: 16px;
+    display: block;
+  }
+
+  .conteiner-img-paragraphs {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+  }
+
+  .artist-name-paragraphs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+  }
+
+  .artist-name-paragraphs p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .artist-name-paragraphs-bio-genges {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .biography-text {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .artists-modal-window {
+    max-width: 1312px;
+    padding: 64px;
+  }
+
+  .album {
+    width: 272px;
+  }
+
+  .albums-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+}
