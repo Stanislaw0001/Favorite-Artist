@@ -39,7 +39,7 @@
   top: 16px;
   right: 16px;
   cursor: pointer;
-
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,8 +53,7 @@
 }
 
 .artists-modal-window-btn:hover {
-  background: rgba(255, 255, 255, 0.16);
-  color: #ff4d4d;
+  background: #764191;
 }
 
 .artists-modal-window-close {
@@ -98,11 +97,6 @@
   margin-bottom: 32px;
 }
 
-img {
-  width: 272px;
-  height: 167px;
-}
-
 .artist-modal-meta {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -111,13 +105,13 @@ img {
   color: #bfbfbf;
 }
 
-.artist-name{
+.artist-name {
   display: flex;
   justify-content: center;
   margin-bottom: 16px;
 }
 
-.artist-modal-meta-paragraphs{
+.artist-modal-meta-paragraphs {
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
@@ -143,14 +137,14 @@ img {
   margin-bottom: 16px;
 }
 
-.artist-genres-list{
+.artist-genres-list {
   display: flex;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    padding: 4px 10px;
-    width: auto;
-    height: auto;
+  border-radius: 6px;
+  padding: 4px 10px;
+  width: auto;
+  height: auto;
 }
 
 .artist-genres span {
@@ -161,7 +155,7 @@ img {
   border-radius: 999px;
 }
 
-.albums-section-title{
+.albums-section-title {
   display: flex;
   justify-content: center;
   margin-bottom: 16px;
@@ -185,19 +179,31 @@ img {
   padding-right: 11px;
   padding-left: 11px;
   color: #e5e5e5;
+  overflow: hidden;
 }
 
 .album-title {
-font-weight: 600;
+  font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 12px;
+  flex-shrink: 0;
 }
 
 .album-tracks {
   list-style: none;
   margin: 0;
   padding: 0;
+  flex: 1 1 auto;
+  max-height: 480px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: auto;
+}
+
+.album-tracks::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .album-tracks-header {
@@ -206,13 +212,13 @@ font-weight: 600;
   padding: 4px;
   margin-bottom: 12px;
   font-weight: 600;
-    font-size: 8px;
-    line-height: 1.5;
-    color: #fff;
+  font-size: 8px;
+  line-height: 1.5;
+  color: #fff;
 
-    border-radius: 8px;
-    padding: 4px 0px 4px 12px;
-    background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 4px 0px 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .album-tracks-header span {
@@ -225,18 +231,15 @@ font-weight: 600;
   gap: 12px;
   font-size: 13px;
   padding: 8px 0px 8px 12px;
-
 }
 
-
-
 .track span {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .track:nth-child(odd) {
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1); 
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .track-link svg {
@@ -276,46 +279,39 @@ font-weight: 600;
 
 /* ===== TABLET ===== */
 @media screen and (min-width: 768px) {
-
-  .artists-modal-window{
+  .artists-modal-window {
     padding-top: 64px;
     padding-bottom: 64px;
     padding-right: 24px;
     padding-left: 24px;
   }
 
-  .artist-name{
+  .artist-name {
     margin-bottom: 48px;
   }
 
-  .artist-name-paragraphs{
-      display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-        max-width: 400px;
-        margin-bottom: 24px;
-  }
-
-  .artist-name-paragraphs p{
-      margin: 0;
-      padding: 10px;;
-  }
-
-  .artist-modal-meta-paragraphs{
+  .artist-name-paragraphs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 400px;
     margin-bottom: 24px;
   }
 
-  .artist-genres{
+  .artist-name-paragraphs p {
+    margin: 0;
+    padding: 10px;
+  }
+
+  .artist-modal-meta-paragraphs {
+    margin-bottom: 24px;
+  }
+
+  .artist-genres {
     margin-bottom: 48px;
   }
 
   .artist-img {
-    width: 654px;
-    height: 402px;
-  }
-
-  img {
-    width: 654px;
     height: 402px;
   }
 
@@ -323,17 +319,14 @@ font-weight: 600;
     align-items: center;
   }
 
-
-  .albums-container{
+  .albums-container {
     gap: 32px;
   }
-
-  
 }
 
 /* ===== DESKTOP ===== */
-@media screen and (min-width: 1280px) {
-  .artist-modal-top {
+@media screen and (min-width: 1440px) {
+  .artists-modal-window-content .artist-modal-top {
     flex-direction: row;
     align-items: flex-start;
     gap: 40px;
@@ -352,7 +345,17 @@ font-weight: 600;
   }
 
   .artists-modal-window {
+    max-width: 1440px;
     padding: 64px;
   }
 
+  .album {
+    width: 272px;
+  }
+
+  .albums-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
 }
