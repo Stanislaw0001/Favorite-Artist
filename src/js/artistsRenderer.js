@@ -1,21 +1,17 @@
-import iconSprite from '/icon/symbol-defs.svg';
-
 export function createMarkup(artists) {
   return artists
     .map(artist => {
-      // Деструктуризируем всё, что может быть полезным
       const {
         _id,
         strArtist,
         strArtistThumb,
         strBiographyEN,
-        genres, // массив
-        genre, // строка
-        strGenre, // еще один вариант строки из API
+        genres,
+        genre,
+        strGenre,
       } = artist;
 
-      // Улучшенная логика поиска жанра
-      let genresList = ['Artist']; // Дефолтное значение
+      let genresList = ['Artist'];
 
       if (Array.isArray(genres) && genres.length > 0) {
         genresList = genres;
@@ -46,7 +42,7 @@ export function createMarkup(artists) {
           <p class="artist__card--info">${shortDescription}</p>
           <button class="artist__card--btn" type="button" data-id="${_id}">
             Learn More 
-            <svg width="24" height="24"><use href="${iconSprite}#icon-play3"></use></svg>
+            <svg width="24" height="24"><use href="/img/icon/artists-section.svg#icon-play3"></use></svg>
           </button>
         </div>
       </li>`;
