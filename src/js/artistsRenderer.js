@@ -1,18 +1,32 @@
-import iconSprite from '../img/icon/artists-section.svg';
-
 export function createMarkup(artists) {
   return artists
-    .map(({ _id, strArtist, strArtistThumb, genres, strBiographyEN }) => {
-      // 1. Сначала объявляем биографию
-      const biography = strBiographyEN || '';
+    .map(artist => {
+      const {
+        _id,
+        strArtist,
+        strArtistThumb,
+        strBiographyEN,
+        genres,
+        genre,
+        strGenre,
+      } = artist;
 
-      // 2. ТЕПЕРЬ создаем shortDescription (важно, чтобы это было внутри .map)
+      let genresList = ['Artist'];
+
+      if (Array.isArray(genres) && genres.length > 0) {
+        genresList = genres;
+      } else if (strGenre) {
+        genresList = [strGenre];
+      } else if (genre) {
+        genresList = [genre];
+      }
+
+      const biography = strBiographyEN || '';
       const shortDescription =
         biography.length > 300
           ? biography.substring(0, 300) + '...'
-          : biography;
+          : biography || 'No biography available for this artist.';
 
-      // 3. Возвращаем строку разметки
       return `
       <li class="artists__item artist-card">
         <div class="artist-card__img-thumb">
@@ -20,13 +34,15 @@ export function createMarkup(artists) {
         </div>
         <div class="artist__card--content">
           <ul class="artist__card--genre-list">
-            ${genres.map(genre => `<li class="artist__card--genre-item">${genre}</li>`).join('')}
+            ${genresList
+              .map(g => `<li class="artist__card--genre-item">${g}</li>`)
+              .join('')}
           </ul>
           <h4 class="artist__card--name">${strArtist}</h4>
           <p class="artist__card--info">${shortDescription}</p>
           <button class="artist__card--btn" type="button" data-id="${_id}">
             Learn More 
-            <svg width="24" height="24"><use href="${iconSprite}#icon-play3"></use></svg>
+            <svg width="24" height="24"><use href="/img/icon/artists-section.svg#icon-play3"></use></svg>
           </button>
         </div>
       </li>`;
