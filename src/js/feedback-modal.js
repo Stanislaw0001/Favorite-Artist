@@ -42,20 +42,26 @@ export function initFeedbackModal() {
 
     if (!response.ok) {
       const result = await response.json().catch(() => ({}));
-      console.error('Server error:', result);
       throw new Error(result.message || 'Request failed');
     }
+
+  
+    if (response.status === 201) {
+      const result = await response.json().catch(() => ({}));
+      return result.message || '';
+    }
+
+    return '';
   }
 
   stars.addEventListener('click', e => {
-    const value = e.target.dataset.value;
-    if (!value) return;
-    rating = Number(value);
-    [...stars.children].forEach(star => {
-      star.classList.toggle('active', Number(star.dataset.value) <= rating);
+    const star = e.target.closest('[data-value]');
+    if (!star) return;
+    rating = Number(star.dataset.value);
+    [...stars.children].forEach(s => {
+      s.classList.toggle('active', Number(s.dataset.value) <= rating);
     });
   });
-
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -69,25 +75,16 @@ export function initFeedbackModal() {
       return;
     }
 
-    console.log('Submitting feedback:', { name, descr: message, rating });
-
     try {
       await sendFeedback({ name, descr: message, rating });
-      closeModal();
-
-      if (window.Notiflix) {
-        Notiflix.Notify.success('Thank you for your feedback!');
-      } else {
-        alert('Thank you for your feedback!');
-      }
+      closeModal(); 
     } catch (err) {
       console.error('Feedback error:', err);
       error.textContent = err.message;
-      if (window.Notiflix) Notiflix.Notify.failure(err.message);
     }
   });
 
-  
+ 
   openBtn.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
