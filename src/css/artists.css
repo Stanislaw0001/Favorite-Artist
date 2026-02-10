@@ -168,7 +168,7 @@
 /* --- Десктоп (від 1440px) --- */
 @media (min-width: 1440px) {
   .artists {
-    padding: 112px 64px;
+    /* padding: 112px 64px; */
   }
 
   .artists__list {
