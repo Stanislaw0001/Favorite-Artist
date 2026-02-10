@@ -32,7 +32,7 @@
    git clone https://github.com/vladyslav-mohyla/Favorite-Artist.git
    ```
    
-Перейти в директорію проєкту:
+2. Перейти в директорію проєкту:
 
 ```bash
 cd Favorite-Artist
@@ -45,3 +45,4 @@ cd Favorite-Artist
 - Модульна структура JavaScript-коду
 - Проєкт легко розширюється (нові секції, API, анімації)
 - Створений у навчальних цілях для практики frontend-розробки
+
