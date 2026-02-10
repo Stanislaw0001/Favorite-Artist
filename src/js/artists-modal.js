@@ -10,7 +10,7 @@ export async function openArtistsModal(artistId) {
 
   modalBackdrop.classList.remove('is-hidden-modal');
   document.body.style.overflow = 'hidden';
-  modalContent.innerHTML = '<p>Loading...</p>';
+  modalContent.innerHTML = '<div class="loader-modal"></div>';
 
   showLoader();
 

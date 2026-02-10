@@ -65,13 +65,16 @@
   height: 24px;
 }
 
-.artists-modal-loader {
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: #bfbfbf;
+
+.loader-modal{
+    margin: 0 auto;
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--color-white);
+    border-bottom-color: var(--color-affair);
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
 }
 
 .is-hidden-modal-loader {
