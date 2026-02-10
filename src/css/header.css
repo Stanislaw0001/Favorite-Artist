@@ -11,11 +11,11 @@
     z-index: 1000;
   }
 
-  .hidden {
+  .nav-hidden {
     display: none;
   }
 
-  .container {
+  .header > .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,7 +97,7 @@
     height: 72px;
   }
 
-  .container {
+  .header > .container {
     padding: 10.5px 64px;
   }
 
@@ -106,7 +106,7 @@
     align-items: center;
   }
 
-  .hidden {
+  .nav-hidden {
     display: block;
   }
 

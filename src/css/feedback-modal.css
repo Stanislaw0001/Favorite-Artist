@@ -1,0 +1,194 @@
+
+.feedback {
+  display: flex;           
+  justify-content: center; 
+  align-items: center;     
+  padding: 20px;          
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.backdrop.active {
+  display: flex;
+}
+
+.modal {
+border-radius: 16px;
+padding: 64px 16px;
+width: 320px;
+height: 568px;
+  background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
+  color: #fff;
+  position: relative;
+}
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  width: 100%;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 8px;
+  color: #fff;
+  line-height: 150%;
+  font-size: 18px;
+}
+
+textarea {
+  resize: none;
+  height: 64px;
+}
+
+.stars {
+  display: flex;        
+  justify-content: flex-start; 
+  gap: 6px;               
+  margin: 4px 0 8px 0;    
+}
+
+.stars span {
+  font-size: 20px; 
+  cursor: pointer;
+  color: #fff;
+}
+
+.stars span.active {
+  color: #7b61ff;
+}
+
+.submit-btn {
+  display: block;
+  margin: 0 auto;
+  background: #7b61ff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  font-size: 18px;
+  line-height: 150%;
+  cursor: pointer;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 12px;
+  text-align: center;
+  min-height: 16px;
+}
+
+.loader {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #333;
+  border-top-color: #7b61ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 12px auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .modal {
+  border-radius: 16px;
+padding: 64px 32px;
+width: 704px;
+height: 688px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  input,
+  textarea {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .stars span {
+    font-size: 22px;
+  }
+
+  .submit-btn {
+   border-radius: 12px;
+padding: 10px 24px;
+width: 340px;
+height: 47px;
+  }
+}
+
+
+@media (min-width: 1440px) {
+  .modal {
+    border-radius: 16px;
+padding: 64px;
+width: 864px;
+height: auto;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  input,
+  textarea {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .stars span {
+    font-size: 24px;
+  }
+
+  .submit-btn {
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 108px;
+  height: 48px;
+  font-size: 18px;
+  
+  }
+}
