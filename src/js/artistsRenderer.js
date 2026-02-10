@@ -1,4 +1,4 @@
-import iconUrl from './img/icon/artists-section.svg?url';
+import iconUrl from '../img/icon/artists-section.svg?url';
 
 export function createMarkup(artists) {
   return artists
