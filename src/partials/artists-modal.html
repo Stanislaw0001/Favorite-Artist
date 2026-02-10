@@ -5,13 +5,15 @@
         <svg
           width="32"
           height="32"
-          viewBox="0 0 32 32"
+          viewBox="0 0 16 16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M22.8353 22.364L22.3638 22.8354C22.1035 23.0957 21.6814 23.0957 21.421 22.8354L15.9999 17.4142L10.5787 22.8353C10.3184 23.0957 9.89626 23.0957 9.63591 22.8353L9.1645 22.3639C8.90415 22.1036 8.90415 21.6815 9.1645 21.4211L14.5857 16L9.1645 10.5788C8.90415 10.3185 8.90415 9.89638 9.1645 9.63603L9.6359 9.16463C9.89625 8.90428 10.3184 8.90428 10.5787 9.16463L15.9999 14.5858L21.421 9.16462C21.6814 8.90427 22.1035 8.90427 22.3638 9.16462L22.8353 9.63602C23.0956 9.89637 23.0956 10.3185 22.8353 10.5788L17.4141 16L22.8353 21.4211C23.0956 21.6815 23.0956 22.1036 22.8353 22.364Z"
-            fill="currentColor"
-          />
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.11 2.697L2.698 4.11 6.586 8l-3.89 3.89 1.415 1.413L8 9.414l3.89 3.89 1.413-1.415L9.414 8l3.89-3.89-1.415-1.413L8 6.586l-3.89-3.89z"
+            fill="#ffffff"
+          ></path>
         </svg>
       </button>
 
@@ -23,19 +25,23 @@
           <div class="artist-modal-meta">
             <h2 class="artist-name">Name of Artist</h2>
             <div class="artist-name-paragraphs">
-              <p class="artist-modal-meta-paragraphs">
-                <strong>Years active</strong>
-                <span class="artist-active-years"></span>
-              </p>
-              <p class="artist-modal-meta-paragraphs">
-                <strong>Sex</strong> <span class="artist-gender"></span>
-              </p>
-              <p class="artist-modal-meta-paragraphs">
-                <strong>Members</strong> <span class="artist-members"></span>
-              </p>
-              <p class="artist-modal-meta-paragraphs">
-                <strong>Country</strong> <span class="artist-country"></span>
-              </p>
+              <div class="years-sex_container">
+                <p class="artist-modal-meta-paragraphs">
+                  <strong>Years active</strong>
+                  <span class="artist-active-years"></span>
+                </p>
+                <p class="artist-modal-meta-paragraphs">
+                  <strong>Sex</strong> <span class="artist-gender"></span>
+                </p>
+              </div>
+              <div class="members-country_container">
+                <p class="artist-modal-meta-paragraphs">
+                  <strong>Members</strong> <span class="artist-members"></span>
+                </p>
+                <p class="artist-modal-meta-paragraphs">
+                  <strong>Country</strong> <span class="artist-country"></span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -51,14 +57,14 @@
         </section>
 
         <section class="albums-section">
-          <h3>Albums</h3>
+          <h3 class="albums-section-title">Albums</h3>
           <div class="albums-container">
             <div class="album">
               <h4 class="album-title">Album Title</h4>
               <ul class="album-tracks">
                 <li class="album-tracks-header">
                   <span>Track</span>
-                  <span>Duration</span>
+                  <span>Time</span>
                   <span>Link</span>
                 </li>
               </ul>
