@@ -11,16 +11,25 @@ export function initFeedbackModal() {
   const loader = backdrop.querySelector('.js-feedback-loader');
 
   let rating = 0;
+  let lastFocusedElement = null;
 
   function openModal() {
+    lastFocusedElement = document.activeElement;
+
+    backdrop.hidden = false;
     backdrop.classList.add('active');
-    backdrop.setAttribute('aria-hidden', 'false');
+    backdrop.removeAttribute('inert');
+
     document.body.style.overflow = 'hidden';
+
+    closeBtn.focus();
   }
 
   function closeModal() {
     backdrop.classList.remove('active');
-    backdrop.setAttribute('aria-hidden', 'true');
+    backdrop.hidden = true;
+    backdrop.setAttribute('inert', '');
+
     document.body.style.overflow = '';
 
     form.reset();
@@ -29,6 +38,10 @@ export function initFeedbackModal() {
       star.classList.remove('active')
     );
     error.textContent = '';
+
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
   }
 
   async function sendFeedback(data) {
@@ -77,11 +90,7 @@ export function initFeedbackModal() {
     try {
       loader.classList.remove('hidden');
 
-      await sendFeedback({
-        name,
-        message,
-        rating,
-      });
+      await sendFeedback({ name, message, rating });
 
       closeModal();
       Notify.success('Thank you for your feedback!');
@@ -100,7 +109,7 @@ export function initFeedbackModal() {
   });
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && backdrop.classList.contains('active')) {
+    if (e.key === 'Escape' && !backdrop.hidden) {
       closeModal();
     }
   });

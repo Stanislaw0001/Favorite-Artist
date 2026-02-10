@@ -1,3 +1,11 @@
+
+.feedback {
+  display: flex;           
+  justify-content: center; 
+  align-items: center;     
+  padding: 20px;          
+}
+
 .backdrop {
   position: fixed;
   inset: 0;
@@ -13,9 +21,10 @@
 }
 
 .modal {
-  width: 280px;
-  padding: 16px;
-  border-radius: 16px;
+border-radius: 16px;
+padding: 64px 16px;
+width: 320px;
+height: 568px;
   background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
   color: #fff;
   position: relative;
@@ -53,7 +62,8 @@ textarea {
   border-radius: 8px;
   padding: 8px;
   color: #fff;
-  font-size: 14px;
+  line-height: 150%;
+  font-size: 18px;
 }
 
 textarea {
@@ -62,18 +72,20 @@ textarea {
 }
 
 .stars {
-  text-align: center;
-  margin-bottom: 8px;
+  display: flex;        
+  justify-content: flex-start; 
+  gap: 6px;               
+  margin: 4px 0 8px 0;    
 }
 
 .stars span {
-  font-size: 20px;
+  font-size: 20px; 
   cursor: pointer;
-  color: #444;
+  color: #fff;
 }
 
 .stars span.active {
-  color: #fff;
+  color: #7b61ff;
 }
 
 .submit-btn {
@@ -81,10 +93,12 @@ textarea {
   margin: 0 auto;
   background: #7b61ff;
   border: none;
-  border-radius: 16px;
-  padding: 8px 20px;
-  color: #fff;
-  font-size: 14px;
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  font-size: 18px;
+  line-height: 150%;
   cursor: pointer;
 }
 
@@ -115,9 +129,13 @@ textarea {
   }
 }
 
-@media (min-width: 768px) {
+
+@media (min-width: 768px) and (max-width: 1439px) {
   .modal {
-    width: 344px;
+  border-radius: 16px;
+padding: 64px 32px;
+width: 704px;
+height: 688px;
   }
 
   .modal-title {
@@ -126,10 +144,51 @@ textarea {
 
   input,
   textarea {
-    font-size: 15px;
+    font-size: 16px;
+    padding: 10px;
   }
 
   .stars span {
     font-size: 22px;
+  }
+
+  .submit-btn {
+   border-radius: 12px;
+padding: 10px 24px;
+width: 340px;
+height: 47px;
+  }
+}
+
+
+@media (min-width: 1440px) {
+  .modal {
+    border-radius: 16px;
+padding: 64px;
+width: 864px;
+height: auto;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  input,
+  textarea {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .stars span {
+    font-size: 24px;
+  }
+
+  .submit-btn {
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 108px;
+  height: 48px;
+  font-size: 18px;
+  
   }
 }
