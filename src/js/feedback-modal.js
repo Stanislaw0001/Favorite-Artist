@@ -1,4 +1,3 @@
-
 export function initFeedbackModal() {
   const openBtn = document.querySelector('.js-open-feedback');
   const backdrop = document.querySelector('.js-feedback-backdrop');
@@ -9,11 +8,9 @@ export function initFeedbackModal() {
   const form = backdrop.querySelector('.js-feedback-form');
   const stars = backdrop.querySelector('.js-rating');
   const error = backdrop.querySelector('.js-feedback-error');
-  const loader = backdrop.querySelector('.js-feedback-loader');
 
   let rating = 0;
   let lastFocusedElement = null;
-
 
   function openModal() {
     lastFocusedElement = document.activeElement;
@@ -24,7 +21,6 @@ export function initFeedbackModal() {
     closeBtn.focus();
   }
 
- 
   function closeModal() {
     backdrop.classList.remove('active');
     backdrop.hidden = true;
@@ -36,7 +32,6 @@ export function initFeedbackModal() {
     error.textContent = '';
     if (lastFocusedElement) lastFocusedElement.focus();
   }
-
 
   async function sendFeedback(data) {
     const response = await fetch('https://sound-wave.b.goit.study/api/feedbacks', {
@@ -52,7 +47,6 @@ export function initFeedbackModal() {
     }
   }
 
-
   stars.addEventListener('click', e => {
     const value = e.target.dataset.value;
     if (!value) return;
@@ -62,7 +56,7 @@ export function initFeedbackModal() {
     });
   });
 
- 
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
     error.textContent = '';
@@ -78,11 +72,9 @@ export function initFeedbackModal() {
     console.log('Submitting feedback:', { name, descr: message, rating });
 
     try {
-      loader.classList.remove('hidden');
       await sendFeedback({ name, descr: message, rating });
       closeModal();
 
-     
       if (window.Notiflix) {
         Notiflix.Notify.success('Thank you for your feedback!');
       } else {
@@ -92,12 +84,10 @@ export function initFeedbackModal() {
       console.error('Feedback error:', err);
       error.textContent = err.message;
       if (window.Notiflix) Notiflix.Notify.failure(err.message);
-    } finally {
-      loader.classList.add('hidden');
     }
   });
 
- 
+  
   openBtn.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
