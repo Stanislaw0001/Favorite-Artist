@@ -25,11 +25,19 @@ const links = document.querySelectorAll('a[href^="#"]');
 
 links.forEach(link => {
   link.addEventListener('click', event => {
-    event.preventDefault();
-
     const id = link.getAttribute('href');
+
+    if (id === '#') return;
+
+    event.preventDefault();
     const section = document.querySelector(id);
 
     section.scrollIntoView({ behavior: 'smooth' });
   });
+});
+
+const mobileLogo = document.querySelector('.mobile-menu .logo-icon');
+mobileLogo.addEventListener('click', () => {
+  mobileMenu.classList.add('mobmenu-hidden');
+  document.body.classList.remove('no-scroll');
 });
