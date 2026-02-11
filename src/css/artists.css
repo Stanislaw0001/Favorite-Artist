@@ -2,10 +2,13 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 64px 16px;
+  /* padding: 64px 16px; */
   background-color: var(--color-scheme-1-background);
 }
-
+.artists .container {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
 .artists__title {
   font-family: var(--font-family);
   font-weight: 600;
@@ -62,6 +65,10 @@
   color: var(--color-scheme-1-text);
 }
 
+.artist__card--genre-item {
+  margin-bottom: 16px;
+}
+
 .artist__card--name {
   font-family: var(--second-family);
   font-weight: 700;
@@ -90,20 +97,26 @@
 .artist__card--btn {
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
+  padding: 0;
   gap: 8px;
 
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
   color: var(--color-white);
-  background: transparent;
-  border: none;
-  transition: color 250ms ease;
-}
 
+  background: transparent;
+  /* border: 1px solid var(--color-white);
+  border-radius: 12px; */
+
+  cursor: pointer;
+  transition: all 250ms ease;
+}
 .artist__card--btn:hover,
 .artist__card--btn:focus {
   color: var(--color-affair-light);
+  border-color: var(--color-affair-light);
 }
 
 .artist__card--btn svg {
@@ -138,20 +151,10 @@
   fill: var(--color-white);
 }
 
-.artists__list {
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-}
-
-.artists__item {
-  flex-basis: 100%;
-}
-
 /* --- Планшет (від 768px до 1439px) --- */
 @media (min-width: 768px) {
   .artists {
-    padding: 80px 32px;
+    /* padding: 80px 32px; */
   }
 
   .artists__subtitle {
@@ -163,12 +166,21 @@
   .artist__card--info {
     -webkit-line-clamp: 4;
   }
+  .artists .container {
+    padding-top:;
+    padding-bottom:;
+  }
 }
 
 /* --- Десктоп (від 1440px) --- */
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .artists {
-    padding: 100px 64px;
+    /* padding: 64px, 0; */
+  }
+
+  .artists .container {
+    padding-top: 112px;
+    padding-bottom: 112px;
   }
 
   .artists__list {
@@ -204,7 +216,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(6, 3, 7, 0.8); /* Колір вашого фону з прозорістю */
+  background-color: rgba(6, 3, 7, 0.8);
   z-index: 999;
   transition:
     opacity 250ms linear,
@@ -217,12 +229,11 @@
   pointer-events: none;
 }
 
-/* Красивий спінер */
 .loader {
   width: 48px;
   height: 48px;
   border: 5px solid var(--color-white);
-  border-bottom-color: var(--color-affair); /* Ваш акцентний колір */
+  border-bottom-color: var(--color-affair);
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
