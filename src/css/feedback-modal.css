@@ -7,8 +7,10 @@
 }
 
 .backdrop {
+  background: var(--color-scheme-1-background);
   position: fixed;
   inset: 0;
+  background: var(--color-scheme-1-background);
   background: rgba(0, 0, 0, 0.6);
   display: none;
   align-items: center;
@@ -31,9 +33,13 @@ height: 568px;
 }
 
 .modal-title {
-  text-align: center;
-  margin-bottom: 12px;
-  font-size: 16px;
+  font-family: var(--second-family);
+font-weight: 700;
+font-size: 24px;
+line-height: 130%;
+letter-spacing: -0.01em;
+text-align: center;
+
 }
 
 .close-btn {
@@ -50,12 +56,18 @@ height: 568px;
 .form-field {
   display: flex;
   flex-direction: column;
+  font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 150%;
+color: var(--color-scheme-1-text);
   gap: 4px;
   margin-bottom: 8px;
 }
 
 input,
 textarea {
+
   width: 100%;
   background: #111;
   border: 1px solid #333;
@@ -85,13 +97,14 @@ textarea {
 }
 
 .stars span.active {
-  color: #7b61ff;
+color: var(--color-affair);
 }
 
 .submit-btn {
   display: block;
   margin: 0 auto;
-  background: #7b61ff;
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
+background: var(--color-affair);
   border: none;
   border-radius: 12px;
   padding: 10px 24px;
@@ -139,7 +152,13 @@ height: 688px;
   }
 
   .modal-title {
-    font-size: 18px;
+   font-family: var(--second-family);
+font-weight: 700;
+font-size: 44px;
+line-height: 120%;
+letter-spacing: -0.01em;
+text-align: center;
+color: var(--color-scheme-1-text);
   }
 
   input,
@@ -170,7 +189,14 @@ height: auto;
   }
 
   .modal-title {
-    font-size: 20px;
+    font-family: var(--second-family);
+font-weight: 700;
+font-size: 60px;
+line-height: 120%;
+letter-spacing: -0.01em;
+text-align: center;
+color: var(--color-scheme-1-text);
+    
   }
 
   input,
