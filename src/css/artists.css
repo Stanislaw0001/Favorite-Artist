@@ -2,10 +2,13 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 64px 16px;
+  /* padding: 64px 16px; */
   background-color: var(--color-scheme-1-background);
 }
-
+.artists .container {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
 .artists__title {
   font-family: var(--font-family);
   font-weight: 600;
@@ -151,7 +154,7 @@
 /* --- Планшет (від 768px до 1439px) --- */
 @media (min-width: 768px) {
   .artists {
-    padding: 80px 32px;
+    /* padding: 80px 32px; */
   }
 
   .artists__subtitle {
@@ -163,12 +166,21 @@
   .artist__card--info {
     -webkit-line-clamp: 4;
   }
+  .artists .container {
+    padding-top:;
+    padding-bottom:;
+  }
 }
 
 /* --- Десктоп (від 1440px) --- */
 @media (min-width: 1440px) {
   .artists {
-    padding: 64px, 0;
+    /* padding: 64px, 0; */
+  }
+
+  .artists .container {
+    padding-top: 112px;
+    padding-bottom: 112px;
   }
 
   .artists__list {
