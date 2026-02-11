@@ -118,8 +118,9 @@
     height: 72px;
   }
 
-  .header > .container {
-    padding: 10.5px 64px;
+  .container {
+    padding-top: 10.5px;
+    padding-bottom: 10.5px;
   }
 
   .navigation {
