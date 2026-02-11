@@ -33,13 +33,12 @@ function initSwiper() {
   }
 
   swiperInstance = new Swiper('.mySwiper', {
-    modules: [Navigation, Pagination, Autoplay],
+    modules: [Navigation, Pagination],
 
     // Настройки Swiper
     slidesPerView: 1,
     spaceBetween: 0,
     centeredSlides: true,
-    loop: true,
     speed: 600,
 
     // Пагинация

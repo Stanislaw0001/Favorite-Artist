@@ -122,7 +122,7 @@
     padding: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: block !important;
-    position: relative;
+    position: absolute;
   }
 
   .swiper-navigation-icon {
@@ -136,7 +136,7 @@
 }
 
 /* Анимация появления слайдов */
-@keyframes slideIn {
+/* @keyframes slideIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -149,7 +149,7 @@
 
 .swiper-slide-active .feedback-card {
   animation: slideIn 0.5s ease forwards;
-}
+} */
 
 @media screen and (min-width: 1440px) {
   .feedback-reviews {

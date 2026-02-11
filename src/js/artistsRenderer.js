@@ -1,3 +1,5 @@
+import iconUrl from '../public/img/icon/artists-section.svg';
+
 export function createMarkup(artists) {
   return artists
     .map(artist => {
